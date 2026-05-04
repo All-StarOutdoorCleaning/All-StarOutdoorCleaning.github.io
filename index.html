@@ -28,7 +28,7 @@
     header { 
       background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); 
       color: white; 
-      padding: 80px 20px; 
+      padding: 60px 20px; 
       text-align: center;
       border-bottom: 5px solid var(--accent);
     }
@@ -42,18 +42,15 @@
     }
 
     .stars { color: var(--accent); font-size: 1.2rem; margin-bottom: 10px; }
-    header p { opacity: 0.9; font-weight: 300; font-size: 1.2rem; max-width: 600px; margin: 10px auto; }
+    header p { opacity: 0.9; font-weight: 300; font-size: 1.2rem; max-width: 600px; margin: 15px auto; }
+
+    .header-btns { margin-top: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
 
     /* Layout */
     .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
     
     section { margin-bottom: 60px; }
-    h2 { 
-      font-size: 1.8rem;
-      text-align: center;
-      margin-bottom: 30px; 
-      position: relative;
-    }
+    h2 { font-size: 1.8rem; text-align: center; margin-bottom: 30px; }
 
     /* Service Cards */
     .services-grid { 
@@ -70,78 +67,61 @@
       transition: all 0.3s ease;
       text-align: center;
       border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
     }
     
-    .card:hover { 
-      transform: translateY(-8px); 
-      box-shadow: 0 12px 20px rgba(0,0,0,0.1);
-      border-color: var(--accent);
+    .card:hover { transform: translateY(-8px); border-color: var(--accent); }
+    .card .icon { font-size: 2.5rem; margin-bottom: 15px; }
+    
+    .price-tag {
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--secondary);
+      margin: 15px 0;
+      background: #ecfdf5;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 50px;
+      align-self: center;
     }
 
-    .card .icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
-    .card h3 { margin: 10px 0; color: var(--dark); }
-
-    /* Booking Form Container */
-    .booking-container {
+    /* Booking Section */
+    .booking-cta-box {
       background: white;
       border-radius: 20px;
-      overflow: hidden;
-      display: flex;
-      flex-wrap: wrap;
-      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-    }
-
-    .booking-info {
-      background: var(--primary);
-      color: white;
       padding: 40px;
-      flex: 1;
-      min-width: 300px;
+      text-align: center;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+      border: 2px solid var(--primary);
     }
-
-    .booking-form { padding: 40px; flex: 1.5; min-width: 300px; }
-
-    .form-group { margin-bottom: 20px; }
-    label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.85rem; color: #64748b; text-transform: uppercase; }
-    
-    input, select { 
-      width: 100%; 
-      padding: 14px; 
-      border: 2px solid #f1f5f9; 
-      border-radius: 10px; 
-      box-sizing: border-box;
-      font-family: inherit;
-      background: #f8fafc;
-      transition: border-color 0.2s;
-    }
-
-    input:focus, select:focus { outline: none; border-color: var(--primary); background: white; }
 
     /* Buttons */
     .btn { 
-      display: block; 
-      width: 100%;
-      padding: 16px; 
+      display: inline-block;
+      padding: 16px 32px; 
       background: var(--primary); 
       color: white; 
       text-align: center;
       text-decoration: none; 
       border-radius: 10px; 
       font-weight: 700;
-      border: none;
-      cursor: pointer;
       transition: all 0.3s;
       font-size: 1rem;
+      border: none;
+      cursor: pointer;
     }
     
-    .btn:hover { background: #1d4ed8; transform: scale(1.02); }
-    .btn-secondary { background: var(--secondary); margin-top: 15px; }
+    .btn:hover { background: #1d4ed8; transform: scale(1.05); }
+    .btn-secondary { background: var(--secondary); }
+    .btn-outline { background: transparent; border: 2px solid white; color: white; }
+    .btn-outline:hover { background: white; color: var(--dark); }
 
     footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.9rem; }
 
     @media (max-width: 600px) {
       header h1 { font-size: 2.2rem; }
-      .booking-info, .booking-form { padding: 25px; }
+      .header-btns .btn { width: 100%; }
     }
   </style>
 </head>
@@ -151,84 +131,53 @@
   <div class="stars">★★★★★</div>
   <h1>All-Star Cleaning</h1>
   <p>Premium Car Washing, Trash Can Sanitizing, and Professional Yard Maintenance.</p>
+  <div class="header-btns">
+    <a href="https://cal.com/soul-warren-nylzfl/" class="btn">Book Appointment Now</a>
+    <a href="tel:+15415438046" class="btn btn-outline">Call +1 (541) 543-8046</a>
+  </div>
 </header>
 
 <div class="container">
   
   <section>
-    <h2>Our Championship Services</h2>
+    <h2>Our Services & Pricing</h2>
     <div class="services-grid">
       <div class="card">
         <span class="icon">🚗</span>
         <h3>Pro Car Wash</h3>
         <p>Detail-oriented cleaning that makes your vehicle look brand new.</p>
+        <span class="price-tag">$15 – $25</span>
       </div>
       <div class="card">
         <span class="icon">🗑️</span>
         <h3>Bin Sanitizing</h3>
         <p>We blast away grime and bacteria, leaving bins smelling fresh.</p>
+        <span class="price-tag">$10</span>
       </div>
       <div class="card">
         <span class="icon">🌿</span>
         <h3>Elite Yard Work</h3>
         <p>Precision mowing and cleanup to give your home curb appeal.</p>
+        <span class="price-tag">$20 – $40</span>
       </div>
     </div>
   </section>
 
   <section>
-    <h2>Schedule Your Service</h2>
-    <div class="booking-container">
-      <div class="booking-info">
-        <h3>Why choose the All-Stars?</h3>
-        <ul style="padding-left: 20px; font-size: 0.95rem;">
-          <li style="margin-bottom: 15px;">Reliable & On-Time Service</li>
-          <li style="margin-bottom: 15px;">Eco-Friendly Cleaning Products</li>
-          <li style="margin-bottom: 15px;">100% Satisfaction Guaranteed</li>
-        </ul>
-        <p style="margin-top: 40px; font-size: 0.8rem; opacity: 0.8;">Need a custom quote? <br>Call or Text us directly!</p>
-        <a href="tel:+15415438046" style="color: var(--accent); font-size: 1.2rem; font-weight: bold; text-decoration: none;">+1 (541) 543-8046</a>
-      </div>
-
-      <div class="booking-form">
-        <form>
-          <div class="form-group">
-            <label>Select Service</label>
-            <select required>
-              <option value="">Choose a service...</option>
-              <option>Full Car Detail</option>
-              <option>Trash Can Deep Clean</option>
-              <option>Yard Maintenance</option>
-              <option>The All-Star Bundle (All 3)</option>
-            </select>
-          </div>
-          
-          <div style="display: flex; gap: 15px;">
-            <div class="form-group" style="flex: 1;">
-              <label>Date</label>
-              <input type="date" required>
-            </div>
-            <div class="form-group" style="flex: 1;">
-              <label>Time</label>
-              <input type="time" required>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Your Phone Number</label>
-            <input type="tel" placeholder="(541) 000-0000" required>
-          </div>
-
-          <button type="submit" class="btn">Confirm Booking</button>
-        </form>
-      </div>
+    <div class="booking-cta-box">
+      <span style="font-size: 3rem;">🗓️</span>
+      <h2>Ready to get started?</h2>
+      <p style="font-size: 1.1rem; color: #64748b; margin-bottom: 30px;">
+        Pick a date and time that works best for you using our online scheduler. 
+        It takes less than 60 seconds!
+      </p>
+      <a href="https://cal.com/soul-warren-nylzfl/" class="btn" style="padding: 20px 40px; font-size: 1.2rem;">
+        Click Here to Book Online
+      </a>
+      <p style="margin-top: 20px; font-size: 0.9rem;">
+        Or call us at <a href="tel:+15415438046" style="color: var(--primary); font-weight: bold; text-decoration: none;">+1 (541) 543-8046</a>
+      </p>
     </div>
-  </section>
-
-  <section style="text-align: center; border-top: 1px solid #e2e8f0; padding-top: 40px;">
-    <h2>Questions?</h2>
-    <p>Give us a call to discuss your specific needs.</p>
-    <a class="btn btn-secondary" style="max-width: 300px; margin: 20px auto;" href="tel:+15415438046">Call +1 (541) 543-8046</a>
   </section>
 
 </div>
