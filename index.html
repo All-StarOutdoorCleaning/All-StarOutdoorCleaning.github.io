@@ -27,7 +27,7 @@
       line-height: 1.6;
     }
 
-    /* Header with fixed spacing */
+    /* Header */
     header { 
       background: linear-gradient(135deg, #4338ca 0%, #0891b2 100%); 
       color: white; 
@@ -48,7 +48,6 @@
       border: 1px solid rgba(255,255,255,0.3);
     }
 
-    /* Main Container - Adjusted margin to prevent overlap */
     .container { 
       max-width: 1100px; 
       margin: 20px auto 0; 
@@ -59,7 +58,6 @@
     
     h2 { text-align: center; font-size: 2rem; margin: 40px 0 20px; color: var(--dark); }
 
-    /* Grid layouts */
     .grid { 
       display: grid; 
       gap: 20px; 
@@ -67,7 +65,6 @@
       margin-bottom: 30px;
     }
     
-    /* Clickable Cards */
     .card-link { text-decoration: none; color: inherit; display: block; }
 
     .card { 
@@ -89,6 +86,7 @@
       box-shadow: 0 15px 30px rgba(99, 102, 241, 0.1);
     }
 
+    /* Bundle Styling */
     .bundle-card { border: 2px dashed var(--success); background: #f0fdf4; }
     .bundle-card:hover { border-style: solid; background: #dcfce7; }
 
@@ -100,7 +98,6 @@
 
     .price { font-weight: 800; color: var(--primary); font-size: 1.4rem; display: block; margin-top: auto; padding-top: 15px; }
     
-    /* Payment Info */
     .payment-methods {
       background: #f1f5f9;
       padding: 20px;
@@ -109,7 +106,6 @@
       margin: 40px 0;
       border: 1px solid #e2e8f0;
     }
-    .payment-methods strong { color: var(--primary); }
 
     .cta-box {
       background: white; border-radius: 30px; padding: 50px; text-align: center;
@@ -125,11 +121,6 @@
     }
     
     footer { text-align: center; padding: 40px; color: #94a3b8; }
-
-    @media (max-width: 600px) {
-      header h1 { font-size: 2.2rem; }
-      header { padding-bottom: 60px; }
-    }
   </style>
 </head>
 <body>
@@ -189,8 +180,17 @@
   <div class="grid">
     <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
       <div class="card bundle-card">
-        <div class="save-tag">SAVE $5</div>
+        <div class="save-tag">SAVE $5-10</div>
         <h3>The Home Refresh</h3>
+        <p>Full Car Detail + Professional Yard Work</p>
+        <span class="price">$40 – $55</span>
+      </div>
+    </a>
+
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card bundle-card">
+        <div class="save-tag">SAVE $5</div>
+        <h3>The Clean Combo</h3>
         <p>Full Car Detail + Trash Bin Sanitizing</p>
         <span class="price">$30</span>
       </div>
@@ -198,9 +198,18 @@
 
     <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
       <div class="card bundle-card">
+        <div class="save-tag">SAVE $5</div>
+        <h3>The Curb Appeal</h3>
+        <p>Professional Yard Work + Trash Bin Sanitizing</p>
+        <span class="price">$25 – $45</span>
+      </div>
+    </a>
+
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card bundle-card">
         <div class="save-tag">SAVE $15</div>
         <h3>The Ultimate MVP</h3>
-        <p>Car Detail + Bins + Full Yard Work</p>
+        <p>Full Car Detail + Bins + Full Yard Work</p>
         <span class="price">$55 – $65</span>
       </div>
     </a>
@@ -212,7 +221,7 @@
 
   <section class="cta-box">
     <h2>Ready to get started?</h2>
-    <p style="margin-bottom: 30px; color: #64748b;">Click any service above or the button below to book.</p>
+    <p style="margin-bottom: 30px; color: #64748b;">Click any service above to book your spot.</p>
     
     <a href="https://cal.com/alll-starcleaningservices/" class="btn">
       Book Online Now
