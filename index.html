@@ -7,324 +7,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>All-Star Cleaning | Soul Warren</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-Star Cleaning Services | CleanSlate</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-color: #041028; /* Dark Blue */
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --primary-blue: #3b82f6;
+    --teal-glow: #00f2fe;
+    --slate-900: #e2e8f0;
+    --slate-600: #94a3b8;
+    --white: #ffffff;
+    --gold: #fbbf24;
+    --red-tag: #ef4444;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-color);
+    color: var(--slate-900);
+    line-height: 1.6;
+    padding: 20px;
+  }
+
+  /* Teal Glow behind the name */
+  header {
+    text-align: center;
+    padding: 60px 0;
+    position: relative;
+    z-index: 1;
+  }
   
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0,242,254,0.3) 0%, rgba(0,242,254,0) 70%);
+    z-index: -1;
+  }
+
+  header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    color: var(--white);
+    text-shadow: 0 0 15px var(--teal-glow);
+  }
+
+  header p {
+    color: var(--slate-600);
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding-bottom: 60px; }
+
+  /* Grid Layout for all sections */
+  .layout-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  h2 { font-size: 1.8rem; margin-bottom: 20px; color: var(--white); border-left: 4px solid var(--teal-glow); padding-left: 15px; }
+
+  /* General Card Styling */
+  .card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  /* Individual Items in Cards */
+  .item-list { list-style: none; }
+  .item-list li { margin-bottom: 10px; font-size: 0.95rem; color: var(--slate-600); }
+  .item-list li strong { color: var(--slate-900); }
+
+  /* Pricing Tags */
+  .tag {
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 6px 14px;
+    border-radius: 50px;
+    text-transform: uppercase;
+  }
+  .tag-gold { background-color: var(--gold); }
+  .tag-red { background-color: var(--red-tag); }
+
+  /* Action Buttons */
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 15px;
+  }
+  .btn:hover { background-color: #2563eb; }
+
+  /* FAQ Styling */
+  .faq-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
   
-  <style>
-    :root {
-      --primary-blue: #1e40af;
-      --light-blue: #eff6ff;
-      --accent-gold: #fbbf24;
-      --slate-900: #0f172a;
-      --slate-600: #475569;
-      --white: #ffffff;
-    }
+  .faq-item { margin-bottom: 25px; }
+  .faq-question {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .faq-answer {
+    font-size: 0.95rem;
+    color: var(--slate-600);
+  }
 
-    * { transition: all 0.3s ease; box-sizing: border-box; }
+  /* Booking Input (Placeholder for integration) */
+  .input-field {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border-radius: 8px;
+    margin-top: 10px;
+    font-family: inherit;
+  }
 
-    body { 
-      font-family: 'Inter', sans-serif; 
-      margin: 0; 
-      background: #fdfdfe;
-      color: var(--slate-900);
-      line-height: 1.5;
-      overflow-x: hidden;
-    }
-
-    /* Sliding Ticker */
-    .ticker-wrapper {
-      width: 100%;
-      background: var(--primary-blue);
-      color: white;
-      padding: 10px 0;
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      font-weight: 700;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .ticker-content {
-      display: inline-block;
-      padding-left: 100%;
-      animation: ticker 25s linear infinite;
-    }
-
-    .ticker-item { display: inline-block; padding: 0 40px; }
-
-    @keyframes ticker {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(-100%, 0); }
-    }
-
-    /* Bouncing Star Icon */
-    .star-container { text-align: center; padding-top: 20px; }
-    .bouncing-star {
-      font-size: 3.5rem;
-      display: inline-block;
-      color: var(--accent-gold);
-      animation: bounce 2s infinite;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-    }
-
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-      40% {transform: translateY(-20px);}
-      60% {transform: translateY(-10px);}
-    }
-
-    header { 
-      background: linear-gradient(to bottom, #ffffff, var(--light-blue));
-      padding: 10px 20px 40px;
-      text-align: center;
-    }
-
-    header h1 { 
-      margin: 10px 0; 
-      font-size: 3rem; 
-      font-weight: 800; 
-      color: var(--primary-blue);
-      letter-spacing: -0.05em;
-    }
-
-    .container { max-width: 1000px; margin: 0 auto; padding: 20px 20px 60px; }
-
-    section-title {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--slate-600);
-      text-align: center;
-      margin: 60px 0 30px;
-    }
-
-    /* Grid Options */
-    .grid { 
-      display: grid; 
-      gap: 25px; 
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    }
-    
-    .card-link { text-decoration: none; color: inherit; }
-
-    .card { 
-      background: var(--white);
-      padding: 40px; 
-      border-radius: 16px; 
-      border: 1px solid var(--slate-200);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card:hover { 
-      border-color: var(--primary-blue);
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(30, 64, 175, 0.08);
-    }
-
-    .price-tag { font-weight: 800; font-size: 1.4rem; color: var(--primary-blue); margin-top: auto; padding-top: 15px; }
-
-    .bundle-label {
-      font-size: 0.7rem; font-weight: 700; background: var(--primary-blue); color: white;
-      padding: 4px 12px; border-radius: 4px; display: inline-block; margin-bottom: 12px;
-    }
-
-    /* Quote Box - Now Middle Placement */
-    .quote-box {
-      background: var(--white);
-      border: 2px solid var(--primary-blue);
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(30, 64, 175, 0.1);
-      margin: 80px 0;
-    }
-
-    .calc-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 0;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    input[type="number"], select {
-      width: 90px; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; text-align: center; font-weight: 700;
-    }
-
-    .total-display {
-      background: var(--primary-blue); color: white; text-align: center; padding: 25px; border-radius: 12px;
-      margin-top: 30px; font-size: 1.8rem; font-weight: 800;
-    }
-
-    .booking-cta { text-align: center; padding: 80px 20px; background: var(--light-blue); }
-    
-    .btn { 
-      display: inline-block; padding: 22px 50px; background: var(--primary-blue);
-      color: var(--white); text-decoration: none; border-radius: 50px; font-weight: 800;
-      box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
-    }
-
-    .notice-bar {
-      text-align: center;
-      padding: 20px;
-      background: #fff1f2;
-      color: #b91c1c;
-      font-weight: 700;
-      border-radius: 12px;
-      margin-bottom: 40px;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-    }
-
-    footer { text-align: center; padding: 40px; color: var(--slate-600); border-top: 1px solid var(--slate-200); }
-  </style>
+  footer {
+    text-align: center;
+    padding: 40px;
+    color: var(--slate-600);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 60px;
+  }
+</style>
 </head>
 <body>
 
-<div class="ticker-wrapper">
-  <div class="ticker-content">
-    <span class="ticker-item">⭐ 100% Satisfaction Guaranteed</span>
-    <span class="ticker-item">💸 $5 Off Your First Cleaning</span>
-    <span class="ticker-item">📍 We Come To You</span>
-    <span class="ticker-item">⭐ 100% Satisfaction Guaranteed</span>
-    <span class="ticker-item">💸 $5 Off Your First Cleaning</span>
-    <span class="ticker-item">📍 We Come To You</span>
-  </div>
-</div>
-
-<div class="star-container"><div class="bouncing-star">★</div></div>
-
 <header>
-  <div style="color: #16a34a; font-weight: 700; font-size: 0.8rem; margin-bottom: 10px;">● AVAILABLE IN VENETA TODAY</div>
-  <h1>All-Star Cleaning</h1>
-  <p style="color: var(--slate-600); font-weight: 500;">Premium Exterior & Car Care by Soul Warren</p>
+  <h1>All-Star Cleaning Services</h1>
+  <p>Car Wash | Bin Sanitization | Yard Work</p>
 </header>
 
 <div class="container">
+  <div class="layout-grid">
 
-  <section-title>Individual Services</section-title>
-  <div class="grid">
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card">
-        <h3>Exterior Wash</h3>
-        <p>Premium hand wash designed to restore paint clarity and tire shine.</p>
-        <span class="price-tag">$15</span>
+    <div class="card">
+      <h2>Book Appointment</h2>
+      <div class="item-list">
+        <li><strong>Car Detailing</strong>: Standard exterior / Interior deep-clean</li>
+        <li><strong>Bin Sanitizing</strong>: High-heat disinfection</li>
+        <li><strong>Yard Work</strong>: Mowing / Edging / Cleanup</li>
       </div>
-    </a>
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card">
-        <h3>Interior Detail</h3>
-        <p>Deep vacuum and dash sterilization for a showroom-clean feel.</p>
-        <span class="price-tag">$15</span>
-      </div>
-    </a>
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card">
-        <h3>The Full Detail</h3>
-        <p>Our signature interior and exterior combination service.</p>
-        <span class="price-tag">$25</span>
-      </div>
-    </a>
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card">
-        <h3>Bin Sanitization</h3>
-        <p>Blast away bacteria and foul odors from your waste bins.</p>
-        <span class="price-tag">$10</span>
-      </div>
-    </a>
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card">
-        <h3>Yard Maintenance</h3>
-        <p>Professional mowing, edging, and debris cleanup.</p>
-        <div class="price-tag">$20 <small style="font-size: 0.8rem; color: var(--slate-600);">and up</small></div>
-      </div>
-    </a>
-  </div>
-
-  <div class="quote-box">
-    <h2 style="text-align: center; color: var(--primary-blue); font-weight: 800; margin-top: 0;">Instant Quote Calculator</h2>
-    <div class="calc-row">
-      <span>🚗 Car Detailing ($25/ea)</span>
-      <input type="number" id="cars" value="0" min="0" oninput="calculateTotal()">
+      <input type="text" class="input-field" placeholder="Phone Number: 541-XXX-XXXX">
+      <a href="tel:15415438046" class="btn">Call Now</a>
     </div>
-    <div class="calc-row">
-      <span>🗑️ Bin Sanitizing ($10/ea)</span>
-      <input type="number" id="bins" value="0" min="0" oninput="calculateTotal()">
+
+    <div class="card">
+      <div class="tag tag-gold">$5 Off</div>
+      <h2>Home & Car Refresh</h2>
+      <p style="margin-bottom: 10px;">Select your combined service:</p>
+      <div class="item-list">
+        <li>Car Detailing + Yard Work</li>
+        <li>Car Detailing + Bin Sanitizing</li>
+      </div>
     </div>
-    <div class="calc-row">
-      <span>🌿 Yard Size</span>
-      <select id="yard" onchange="calculateTotal()">
-        <option value="0">None</option>
-        <option value="20">Small Yard ($20)</option>
-        <option value="30">Medium Yard ($30)</option>
-        <option value="45">Large Yard ($45+)</option>
-      </select>
+
+    <div class="card">
+      <div class="tag tag-gold">$5 Off</div>
+      <h2>Exterior Care Combo</h2>
+      <p style="margin-bottom: 10px;">The ultimate curb appeal package:</p>
+      <div class="item-list">
+        <li>Bin Sanitizing + Yard Work</li>
+      </div>
     </div>
-    <div class="total-display">Estimated Total: $<span id="totalPrice">0</span></div>
+
+    <div class="card" style="border-color: var(--gold); box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);">
+      <div class="tag tag-red">$10 Off</div>
+      <h2>Premium All-Star Bundle</h2>
+      <p style="margin-bottom: 10px; font-weight: 600;">Complete exterior care including:</p>
+      <div class="item-list">
+        <li>Car Detailing (Exterior + Interior)</li>
+        <li>Bin Sanitizing</li>
+        <li>Full Yard Work</li>
+      </div>
+    </div>
   </div>
 
-  <section-title>Money-Saving Bundles</section-title>
-  <div class="grid">
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card">
-        <span class="bundle-label">HOME REFRESH</span>
-        <h3>Car & Yard</h3>
-        <p>Complete vehicle detail paired with professional yard care.</p>
-        <div class="price-tag">$40 <small style="font-size: 0.8rem; color: var(--slate-600);">and up</small></div>
+  <div class="layout-grid" style="grid-template-columns: 1fr; margin-top: 30px;">
+    <div class="faq-card">
+      <h2>Frequently Asked Questions</h2>
+      
+      <div class="faq-item">
+        <p class="faq-question">Do I need to be home?</p>
+        <p class="faq-answer">Only if you have an interior car detailing service scheduled.</p>
       </div>
-    </a>
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card" style="background: var(--slate-900); color: white; border: none;">
-        <span class="bundle-label" style="background: var(--accent-gold); color: var(--slate-900);">BEST VALUE</span>
-        <h3>The Ultimate MVP</h3>
-        <p style="color: #94a3b8;">The works: Full Car Detail, Bins, and Yard Maintenance.</p>
-        <div class="price-tag" style="color: white;">$50 <small style="font-size: 0.8rem; color: #94a3b8;">and up</small></div>
-      </div>
-    </a>
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card">
-        <span class="bundle-label">CLEAN COMBO</span>
-        <h3>The Curb Appeal</h3>
-        <p>Expert yard maintenance and high-heat bin sanitization.</p>
-        <div class="price-tag">$25 <small style="font-size: 0.8rem; color: var(--slate-600);">and up</small></div>
-      </div>
-    </a>
-  </div>
-</div>
 
-<div class="booking-cta">
-  <div class="notice-bar">
-    ⚠️ IMPORTANT: OUTDOOR WATER FAUCET REQUIRED FOR CAR & BIN CLEANING
-  </div>
-  <h2>Book Your All-Star Clean</h2>
-  <a href="https://cal.com/alll-starcleaningservices/" class="btn">Reserve My Date</a>
-  <div style="margin-top: 40px; font-weight: 700; font-size: 1.2rem;">
-    Soul Warren: <a href="tel:+15415438046" style="color: var(--primary-blue); text-decoration: none;">+1 (541) 543-8046</a>
-    <div style="font-size: 0.9rem; color: var(--slate-600); font-weight: 400; margin-top: 5px;">We Respond within 24 hours</div>
+      <div class="faq-item">
+        <p class="faq-question">What payments do you take?</p>
+        <p class="faq-answer">Cash, Cash app, And Venmo.</p>
+      </div>
+    </div>
   </div>
 </div>
 
 <footer>
-  <p>Accepted: Cash, Venmo, Cash App<br>© 2026 All-Star Cleaning Services • Veneta, OR</p>
+  <p>&copy; 2023 All-Star Cleaning Services. All rights reserved.</p>
 </footer>
-
-<script>
-function calculateTotal() {
-  const cars = document.getElementById('cars').value * 25;
-  const bins = document.getElementById('bins').value * 10;
-  const yard = parseInt(document.getElementById('yard').value);
-  const total = cars + bins + yard;
-  document.getElementById('totalPrice').innerText = total;
-}
-</script>
 
 </body>
 </html>
