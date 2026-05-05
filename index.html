@@ -63,7 +63,6 @@
       100% { transform: translateX(-100%); }
     }
 
-    /* Refined Glow Header */
     header { 
       padding: 100px 20px 60px;
       text-align: center;
@@ -107,13 +106,59 @@
       letter-spacing: 0.3em;
     }
 
-    .section-header h2 {
-      font-size: 2.25rem;
-      margin-top: 10px;
-      font-weight: 700;
+    .section-header h2 { font-size: 2.25rem; margin-top: 10px; font-weight: 700; }
+
+    /* Quote Box Styling */
+    .quote-box {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 50px;
+      border-radius: 32px;
+      border: 1px solid rgba(45, 212, 191, 0.3);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     }
 
-    /* Premium Grid */
+    .calc-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .calc-row:last-of-type { border-bottom: none; }
+
+    .calc-label { font-weight: 600; font-size: 1.1rem; color: var(--text-main); }
+
+    input[type="number"], select {
+      background: #1e293b;
+      color: white;
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: 12px;
+      width: 100px;
+      text-align: center;
+      font-family: inherit;
+      font-weight: 700;
+      outline: none;
+    }
+
+    input:focus, select:focus { border-color: var(--teal-glow); }
+
+    .total-display {
+      background: linear-gradient(135deg, #1e40af, #2563eb);
+      margin-top: 30px;
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+    }
+
+    .total-display span { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; display: block; margin-bottom: 5px; }
+    .total-price { font-size: 3rem; font-weight: 800; }
+
+    /* Grid Options */
     .grid { 
       display: grid; 
       gap: 24px; 
@@ -138,24 +183,10 @@
       border-color: rgba(45, 212, 191, 0.4);
       transform: translateY(-10px);
       background: rgba(30, 41, 59, 0.8);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
 
-    .card h3 { font-size: 1.5rem; margin: 0 0 12px; font-weight: 700; }
-    .card p { color: var(--text-muted); margin-bottom: 24px; flex-grow: 1; font-size: 0.95rem; }
+    .price-tag { font-weight: 800; font-size: 1.75rem; color: white; display: flex; align-items: baseline; gap: 4px; margin-top: auto;}
 
-    .price-tag { 
-        font-weight: 800; 
-        font-size: 1.75rem; 
-        color: white;
-        display: flex;
-        align-items: baseline;
-        gap: 4px;
-    }
-
-    .price-tag small { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; }
-
-    /* Professional Discount Badges */
     .badge {
       position: absolute;
       top: 20px;
@@ -166,30 +197,17 @@
       border-radius: 8px;
       font-weight: 800;
       font-size: 0.7rem;
-      letter-spacing: 0.05em;
     }
 
     .badge-gold { background: var(--accent-gold); }
 
     /* FAQ Section */
-    .faq-wrapper {
-      max-width: 900px;
-      margin: 100px auto;
-      display: grid;
-      gap: 20px;
-    }
-
-    .faq-item {
-      background: var(--card-bg);
-      padding: 32px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
-    }
-
+    .faq-wrapper { max-width: 900px; margin: 40px auto 100px; display: grid; gap: 20px; }
+    .faq-item { background: var(--card-bg); padding: 32px; border-radius: 16px; border: 1px solid var(--border); }
     .faq-item h4 { margin: 0 0 10px; color: var(--teal-glow); font-size: 1.1rem; }
     .faq-item p { margin: 0; color: var(--text-muted); }
 
-    /* Final CTA Area */
+    /* CTA Area */
     .cta-container {
       text-align: center;
       padding: 120px 20px;
@@ -209,23 +227,11 @@
     
     .btn-primary:hover { transform: scale(1.05); background: var(--teal-glow); }
 
-    .contact-footer {
-        margin-top: 40px;
-        color: var(--text-muted);
-    }
-
-    .contact-footer b { color: white; display: block; font-size: 1.25rem; margin-bottom: 5px; }
-
-    footer { 
-        text-align: center; 
-        padding: 60px 20px; 
-        font-size: 0.8rem; 
-        color: var(--text-muted);
-        border-top: 1px solid var(--border);
-    }
+    footer { text-align: center; padding: 60px 20px; font-size: 0.8rem; color: var(--text-muted); border-top: 1px solid var(--border); }
 
     @media (max-width: 768px) {
         header h1 { font-size: 2.5rem; }
+        .quote-box { padding: 30px 20px; }
     }
   </style>
 </head>
@@ -266,7 +272,7 @@
     <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
       <div class="card">
         <h3>Interior Detail</h3>
-        <p>Steam-grade surface treatment and deep vacuuming for a sterile, fresh environment.</p>
+        <p>Deep vacuuming and surface treatment for a sterile, fresh environment.</p>
         <div class="price-tag">$15</div>
       </div>
     </a>
@@ -277,20 +283,35 @@
         <div class="price-tag">$25</div>
       </div>
     </a>
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card">
-        <h3>Bin Sanitization</h3>
-        <p>High-thermal disinfection eliminating 99.9% of bacteria and environmental odors.</p>
-        <div class="price-tag">$10</div>
-      </div>
-    </a>
-    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
-      <div class="card">
-        <h3>Yard Maintenance</h3>
-        <p>Precision landscaping including mowing, edging, and seasonal debris management.</p>
-        <div class="price-tag">$20<small>+</small></div>
-      </div>
-    </a>
+  </div>
+
+  <div class="section-header">
+    <span>Pricing</span>
+    <h2>Instant Quote Calculator</h2>
+  </div>
+
+  <div class="quote-box">
+    <div class="calc-row">
+      <div class="calc-label">🚗 Car Detailing ($25/ea)</div>
+      <input type="number" id="cars" value="0" min="0" oninput="calculateTotal()">
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">🗑️ Bin Sanitizing ($10/ea)</div>
+      <input type="number" id="bins" value="0" min="0" oninput="calculateTotal()">
+    </div>
+    <div class="calc-row">
+      <div class="calc-label">🌿 Yard Size</div>
+      <select id="yard" onchange="calculateTotal()">
+        <option value="0">Select size...</option>
+        <option value="20">Small Yard ($20)</option>
+        <option value="30">Medium Yard ($30)</option>
+        <option value="45">Large Yard ($45+)</option>
+      </select>
+    </div>
+    <div class="total-display">
+      <span>Estimated Investment</span>
+      <div class="total-price">$<span id="totalPrice">0</span></div>
+    </div>
   </div>
 
   <div class="section-header">
@@ -304,7 +325,7 @@
         <div class="badge">$5 SAVINGS</div>
         <h3>Home Refresh</h3>
         <p>The perfect pairing of professional automotive detailing and lawn care.</p>
-        <div class="price-tag">$40<small>+</small></div>
+        <div class="price-tag">$40+</div>
       </div>
     </a>
     <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
@@ -312,7 +333,7 @@
         <div class="badge badge-gold">$10 SAVINGS</div>
         <h3>The Ultimate MVP</h3>
         <p>Our most requested tier. Full detailing, bin sanitization, and yard maintenance.</p>
-        <div class="price-tag">$50<small>+</small></div>
+        <div class="price-tag">$50+</div>
       </div>
     </a>
     <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
@@ -320,7 +341,7 @@
         <div class="badge">$5 SAVINGS</div>
         <h3>Curb Appeal</h3>
         <p>Transform your property’s exterior with bin cleaning and yard maintenance.</p>
-        <div class="price-tag">$25<small>+</small></div>
+        <div class="price-tag">$25+</div>
       </div>
     </a>
   </div>
@@ -333,34 +354,44 @@
   <div class="faq-wrapper">
     <div class="faq-item">
       <h4>Do I need to be home?</h4>
-      <p>Only if your appointment includes an interior automotive detailing service. For all other exterior work, no physical presence is required.</p>
+      <p>Only if your appointment includes an interior automotive detailing service. For all other exterior work, no presence is required.</p>
     </div>
     <div class="faq-item">
       <h4>What payment methods are accepted?</h4>
-      <p>We facilitate secure payments via Cash, Cash App, and Venmo for your convenience.</p>
+      <p>We accept Cash, Cash App, and Venmo for all completed services.</p>
     </div>
   </div>
 
 </div>
 
 <div class="cta-container">
-  <h2>Ready for a transformation?</h2>
-  <p style="color: var(--text-muted); margin-bottom: 50px;">Secure your preferred date and time through our automated booking system.</p>
+  <h2>Experience the Difference</h2>
+  <p style="color: var(--text-muted); margin-bottom: 50px;">Secure your preferred time slot via SMS or our booking system.</p>
   
-  <a href="sms:+15415438046?body=Hello Soul, I would like to inquire about a cleaning service." class="btn-primary">
+  <a href="sms:+15415438046?body=Hello Soul, I'm interested in a cleaning service." class="btn-primary">
     Send Message to Soul
   </a>
   
-  <div class="contact-footer">
-    <b>541.543.8046</b>
-    <span>Typical response time: Within 24 hours</span>
+  <div style="margin-top: 40px; color: var(--text-muted);">
+    <b style="color: white; font-size: 1.25rem; display: block; margin-bottom: 5px;">541.543.8046</b>
+    <span>Response within 24 hours</span>
   </div>
 </div>
 
 <footer>
-  <p>© 2026 All-Star Cleaning Services • Locally Owned in Veneta, OR</p>
-  <p style="margin-top: 10px; opacity: 0.5;">Outdoor water source required for all washing services.</p>
+  <p>© 2026 All-Star Cleaning Services • Veneta, OR</p>
+  <p style="margin-top: 10px; opacity: 0.5;">Outdoor water source required for washing services.</p>
 </footer>
+
+<script>
+function calculateTotal() {
+  const cars = document.getElementById('cars').value * 25;
+  const bins = document.getElementById('bins').value * 10;
+  const yard = parseInt(document.getElementById('yard').value);
+  const total = (cars || 0) + (bins || 0) + (yard || 0);
+  document.getElementById('totalPrice').innerText = total;
+}
+</script>
 
 </body>
 </html>
