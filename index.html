@@ -102,34 +102,7 @@
       letter-spacing: 0.2em;
       color: var(--slate-600);
       text-align: center;
-      margin: 40px 0 30px;
-    }
-
-    /* Quote Box */
-    .quote-box {
-      background: var(--white);
-      border: 2px solid var(--primary-blue);
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 20px 40px rgba(30, 64, 175, 0.1);
-      margin-bottom: 60px;
-    }
-
-    .calc-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 15px 0;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    input[type="number"], select {
-      width: 90px; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; text-align: center; font-weight: 700;
-    }
-
-    .total-display {
-      background: var(--primary-blue); color: white; text-align: center; padding: 25px; border-radius: 12px;
-      margin-top: 30px; font-size: 1.8rem; font-weight: 800;
+      margin: 60px 0 30px;
     }
 
     /* Grid Options */
@@ -164,9 +137,31 @@
       padding: 4px 12px; border-radius: 4px; display: inline-block; margin-bottom: 12px;
     }
 
-    /* Map and Info */
-    .map-section {
-      background: var(--slate-900); color: white; padding: 80px 20px; text-align: center;
+    /* Quote Box - Now Middle Placement */
+    .quote-box {
+      background: var(--white);
+      border: 2px solid var(--primary-blue);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(30, 64, 175, 0.1);
+      margin: 80px 0;
+    }
+
+    .calc-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 0;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    input[type="number"], select {
+      width: 90px; padding: 10px; border-radius: 8px; border: 1px solid #cbd5e1; text-align: center; font-weight: 700;
+    }
+
+    .total-display {
+      background: var(--primary-blue); color: white; text-align: center; padding: 25px; border-radius: 12px;
+      margin-top: 30px; font-size: 1.8rem; font-weight: 800;
     }
 
     .booking-cta { text-align: center; padding: 80px 20px; background: var(--light-blue); }
@@ -175,6 +170,18 @@
       display: inline-block; padding: 22px 50px; background: var(--primary-blue);
       color: var(--white); text-decoration: none; border-radius: 50px; font-weight: 800;
       box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+    }
+
+    .notice-bar {
+      text-align: center;
+      padding: 20px;
+      background: #fff1f2;
+      color: #b91c1c;
+      font-weight: 700;
+      border-radius: 12px;
+      margin-bottom: 40px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
     }
 
     footer { text-align: center; padding: 40px; color: var(--slate-600); border-top: 1px solid var(--slate-200); }
@@ -202,28 +209,6 @@
 </header>
 
 <div class="container">
-  
-  <div class="quote-box">
-    <h2 style="text-align: center; color: var(--primary-blue); font-weight: 800; margin-top: 0;">Instant Quote Calculator</h2>
-    <div class="calc-row">
-      <span>🚗 Car Detailing ($25/ea)</span>
-      <input type="number" id="cars" value="0" min="0" oninput="calculateTotal()">
-    </div>
-    <div class="calc-row">
-      <span>🗑️ Bin Sanitizing ($10/ea)</span>
-      <input type="number" id="bins" value="0" min="0" oninput="calculateTotal()">
-    </div>
-    <div class="calc-row">
-      <span>🌿 Yard Size</span>
-      <select id="yard" onchange="calculateTotal()">
-        <option value="0">None</option>
-        <option value="20">Small Yard ($20)</option>
-        <option value="30">Medium Yard ($30)</option>
-        <option value="45">Large Yard ($45+)</option>
-      </select>
-    </div>
-    <div class="total-display">Estimated Total: $<span id="totalPrice">0</span></div>
-  </div>
 
   <section-title>Individual Services</section-title>
   <div class="grid">
@@ -264,6 +249,28 @@
     </a>
   </div>
 
+  <div class="quote-box">
+    <h2 style="text-align: center; color: var(--primary-blue); font-weight: 800; margin-top: 0;">Instant Quote Calculator</h2>
+    <div class="calc-row">
+      <span>🚗 Car Detailing ($25/ea)</span>
+      <input type="number" id="cars" value="0" min="0" oninput="calculateTotal()">
+    </div>
+    <div class="calc-row">
+      <span>🗑️ Bin Sanitizing ($10/ea)</span>
+      <input type="number" id="bins" value="0" min="0" oninput="calculateTotal()">
+    </div>
+    <div class="calc-row">
+      <span>🌿 Yard Size</span>
+      <select id="yard" onchange="calculateTotal()">
+        <option value="0">None</option>
+        <option value="20">Small Yard ($20)</option>
+        <option value="30">Medium Yard ($30)</option>
+        <option value="45">Large Yard ($45+)</option>
+      </select>
+    </div>
+    <div class="total-display">Estimated Total: $<span id="totalPrice">0</span></div>
+  </div>
+
   <section-title>Money-Saving Bundles</section-title>
   <div class="grid">
     <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
@@ -293,18 +300,10 @@
   </div>
 </div>
 
-<div class="map-section">
-    <h2>Serving Veneta, Oregon</h2>
-    <p style="margin-bottom: 40px; opacity: 0.8;">Professional results delivered to your driveway.</p>
-    <div style="max-width: 800px; margin: 0 auto; height: 350px; border-radius: 20px; overflow: hidden; border: 1px solid #334155;">
-        <iframe width="100%" height="100%" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_YOUR_GOOGLE_MAPS_API_KEY&q=Veneta,Oregon" allowfullscreen></iframe>
-    </div>
-    <p style="color: #f87171; font-weight: 800; margin-top: 30px; font-size: 0.9rem; text-transform: uppercase;">
-        ⚠️ IMPORTANT: Outdoor water faucet required for car & bin cleaning
-    </p>
-</div>
-
 <div class="booking-cta">
+  <div class="notice-bar">
+    ⚠️ IMPORTANT: OUTDOOR WATER FAUCET REQUIRED FOR CAR & BIN CLEANING
+  </div>
   <h2>Book Your All-Star Clean</h2>
   <a href="https://cal.com/alll-starcleaningservices/" class="btn">Reserve My Date</a>
   <div style="margin-top: 40px; font-weight: 700; font-size: 1.2rem;">
