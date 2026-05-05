@@ -7,232 +7,359 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>All-Star Cleaning Services | CleanSlate</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg-color: #041028; /* Dark Blue */
-    --card-bg: rgba(255, 255, 255, 0.05);
-    --primary-blue: #3b82f6;
-    --teal-glow: #00f2fe;
-    --slate-900: #e2e8f0;
-    --slate-600: #94a3b8;
-    --white: #ffffff;
-    --gold: #fbbf24;
-    --red-tag: #ef4444;
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body { 
-    font-family: 'Inter', sans-serif; 
-    background-color: var(--bg-color);
-    color: var(--slate-900);
-    line-height: 1.6;
-    padding: 20px;
-  }
-
-  /* Teal Glow behind the name */
-  header {
-    text-align: center;
-    padding: 60px 0;
-    position: relative;
-    z-index: 1;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All-Star Cleaning | Premium Property & Auto Care</title>
   
-  header::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(0,242,254,0.3) 0%, rgba(0,242,254,0) 70%);
-    z-index: -1;
-  }
-
-  header h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    color: var(--white);
-    text-shadow: 0 0 15px var(--teal-glow);
-  }
-
-  header p {
-    color: var(--slate-600);
-    font-size: 1.1rem;
-    margin-top: 10px;
-  }
-
-  .container { max-width: 1100px; margin: 0 auto; padding-bottom: 60px; }
-
-  /* Grid Layout for all sections */
-  .layout-grid {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  }
-
-  h2 { font-size: 1.8rem; margin-bottom: 20px; color: var(--white); border-left: 4px solid var(--teal-glow); padding-left: 15px; }
-
-  /* General Card Styling */
-  .card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-  }
-
-  /* Individual Items in Cards */
-  .item-list { list-style: none; }
-  .item-list li { margin-bottom: 10px; font-size: 0.95rem; color: var(--slate-600); }
-  .item-list li strong { color: var(--slate-900); }
-
-  /* Pricing Tags */
-  .tag {
-    position: absolute;
-    top: -10px;
-    right: 20px;
-    color: white;
-    font-weight: 700;
-    font-size: 0.8rem;
-    padding: 6px 14px;
-    border-radius: 50px;
-    text-transform: uppercase;
-  }
-  .tag-gold { background-color: var(--gold); }
-  .tag-red { background-color: var(--red-tag); }
-
-  /* Action Buttons */
-  .btn {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: var(--primary-blue);
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: 600;
-    margin-top: 15px;
-  }
-  .btn:hover { background-color: #2563eb; }
-
-  /* FAQ Styling */
-  .faq-card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    padding: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   
-  .faq-item { margin-bottom: 25px; }
-  .faq-question {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-  .faq-answer {
-    font-size: 0.95rem;
-    color: var(--slate-600);
-  }
+  <style>
+    :root {
+      --bg-dark: #030712;
+      --card-bg: rgba(15, 23, 42, 0.6);
+      --primary-blue: #2563eb;
+      --teal-glow: #2dd4bf;
+      --accent-gold: #fbbf24;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.08);
+    }
 
-  /* Booking Input (Placeholder for integration) */
-  .input-field {
-    width: 100%;
-    padding: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    border-radius: 8px;
-    margin-top: 10px;
-    font-family: inherit;
-  }
+    * { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); box-sizing: border-box; }
 
-  footer {
-    text-align: center;
-    padding: 40px;
-    color: var(--slate-600);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: 60px;
-  }
-</style>
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      margin: 0; 
+      background: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Professional Ticker */
+    .ticker-wrapper {
+      width: 100%;
+      background: linear-gradient(90deg, #1e40af, #2563eb);
+      color: white;
+      padding: 12px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .ticker-content {
+      display: inline-block;
+      animation: ticker 30s linear infinite;
+    }
+
+    .ticker-item { display: inline-block; padding: 0 60px; opacity: 0.9; }
+
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Refined Glow Header */
+    header { 
+      padding: 100px 20px 60px;
+      text-align: center;
+      position: relative;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(45, 212, 191, 0.15) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    header h1 { 
+      margin: 0; 
+      font-size: 4rem; 
+      font-weight: 800; 
+      letter-spacing: -0.06em;
+      background: linear-gradient(to right, #fff, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    .section-header {
+      text-align: center;
+      margin: 80px 0 40px;
+    }
+
+    .section-header span {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--teal-glow);
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+    }
+
+    .section-header h2 {
+      font-size: 2.25rem;
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    /* Premium Grid */
+    .grid { 
+      display: grid; 
+      gap: 24px; 
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    }
+    
+    .card-link { text-decoration: none; color: inherit; display: block; }
+
+    .card { 
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      padding: 48px 40px; 
+      border-radius: 24px; 
+      border: 1px solid var(--border);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card:hover { 
+      border-color: rgba(45, 212, 191, 0.4);
+      transform: translateY(-10px);
+      background: rgba(30, 41, 59, 0.8);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .card h3 { font-size: 1.5rem; margin: 0 0 12px; font-weight: 700; }
+    .card p { color: var(--text-muted); margin-bottom: 24px; flex-grow: 1; font-size: 0.95rem; }
+
+    .price-tag { 
+        font-weight: 800; 
+        font-size: 1.75rem; 
+        color: white;
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+    }
+
+    .price-tag small { font-size: 0.9rem; color: var(--text-muted); font-weight: 400; }
+
+    /* Professional Discount Badges */
+    .badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: black;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-gold { background: var(--accent-gold); }
+
+    /* FAQ Section */
+    .faq-wrapper {
+      max-width: 900px;
+      margin: 100px auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      padding: 32px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .faq-item h4 { margin: 0 0 10px; color: var(--teal-glow); font-size: 1.1rem; }
+    .faq-item p { margin: 0; color: var(--text-muted); }
+
+    /* Final CTA Area */
+    .cta-container {
+      text-align: center;
+      padding: 120px 20px;
+      background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1), transparent);
+    }
+
+    .btn-primary { 
+      display: inline-block; 
+      padding: 24px 60px; 
+      background: white;
+      color: black; 
+      text-decoration: none; 
+      border-radius: 100px; 
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+    
+    .btn-primary:hover { transform: scale(1.05); background: var(--teal-glow); }
+
+    .contact-footer {
+        margin-top: 40px;
+        color: var(--text-muted);
+    }
+
+    .contact-footer b { color: white; display: block; font-size: 1.25rem; margin-bottom: 5px; }
+
+    footer { 
+        text-align: center; 
+        padding: 60px 20px; 
+        font-size: 0.8rem; 
+        color: var(--text-muted);
+        border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+        header h1 { font-size: 2.5rem; }
+    }
+  </style>
 </head>
 <body>
 
+<div class="ticker-wrapper">
+  <div class="ticker-content">
+    <span class="ticker-item">● 100% Satisfaction Guaranteed</span>
+    <span class="ticker-item">● $5 Discount on Initial Booking</span>
+    <span class="ticker-item">● Mobile On-Site Service</span>
+    <span class="ticker-item">● 100% Satisfaction Guaranteed</span>
+    <span class="ticker-item">● $5 Discount on Initial Booking</span>
+    <span class="ticker-item">● Mobile On-Site Service</span>
+  </div>
+</div>
+
 <header>
-  <h1>All-Star Cleaning Services</h1>
-  <p>Car Wash | Bin Sanitization | Yard Work</p>
+  <div style="font-size: 0.7rem; letter-spacing: 0.4em; color: var(--teal-glow); margin-bottom: 20px; font-weight: 800;">EST. 2026</div>
+  <h1>All-Star Cleaning</h1>
+  <p style="color: var(--text-muted); font-size: 1.1rem; margin-top: 15px;">Elite Automotive & Property Maintenance by <b>Soul Warren</b></p>
 </header>
 
 <div class="container">
-  <div class="layout-grid">
 
-    <div class="card">
-      <h2>Book Appointment</h2>
-      <div class="item-list">
-        <li><strong>Car Detailing</strong>: Standard exterior / Interior deep-clean</li>
-        <li><strong>Bin Sanitizing</strong>: High-heat disinfection</li>
-        <li><strong>Yard Work</strong>: Mowing / Edging / Cleanup</li>
+  <div class="section-header">
+    <span>Services</span>
+    <h2>Individual Solutions</h2>
+  </div>
+
+  <div class="grid">
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card">
+        <h3>Exterior Wash</h3>
+        <p>A meticulous hand wash and decontamination process to restore showroom clarity.</p>
+        <div class="price-tag">$15</div>
       </div>
-      <input type="text" class="input-field" placeholder="Phone Number: 541-XXX-XXXX">
-      <a href="tel:15415438046" class="btn">Call Now</a>
+    </a>
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card">
+        <h3>Interior Detail</h3>
+        <p>Steam-grade surface treatment and deep vacuuming for a sterile, fresh environment.</p>
+        <div class="price-tag">$15</div>
+      </div>
+    </a>
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card">
+        <h3>The Full Detail</h3>
+        <p>Our comprehensive signature treatment covering both interior and exterior rejuvenation.</p>
+        <div class="price-tag">$25</div>
+      </div>
+    </a>
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card">
+        <h3>Bin Sanitization</h3>
+        <p>High-thermal disinfection eliminating 99.9% of bacteria and environmental odors.</p>
+        <div class="price-tag">$10</div>
+      </div>
+    </a>
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card">
+        <h3>Yard Maintenance</h3>
+        <p>Precision landscaping including mowing, edging, and seasonal debris management.</p>
+        <div class="price-tag">$20<small>+</small></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="section-header">
+    <span>Optimized Value</span>
+    <h2>Service Bundles</h2>
+  </div>
+
+  <div class="grid">
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card">
+        <div class="badge">$5 SAVINGS</div>
+        <h3>Home Refresh</h3>
+        <p>The perfect pairing of professional automotive detailing and lawn care.</p>
+        <div class="price-tag">$40<small>+</small></div>
+      </div>
+    </a>
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card" style="border-color: var(--accent-gold);">
+        <div class="badge badge-gold">$10 SAVINGS</div>
+        <h3>The Ultimate MVP</h3>
+        <p>Our most requested tier. Full detailing, bin sanitization, and yard maintenance.</p>
+        <div class="price-tag">$50<small>+</small></div>
+      </div>
+    </a>
+    <a href="https://cal.com/alll-starcleaningservices/" class="card-link">
+      <div class="card">
+        <div class="badge">$5 SAVINGS</div>
+        <h3>Curb Appeal</h3>
+        <p>Transform your property’s exterior with bin cleaning and yard maintenance.</p>
+        <div class="price-tag">$25<small>+</small></div>
+      </div>
+    </a>
+  </div>
+
+  <div class="section-header">
+    <span>Support</span>
+    <h2>Common Inquiries</h2>
+  </div>
+
+  <div class="faq-wrapper">
+    <div class="faq-item">
+      <h4>Do I need to be home?</h4>
+      <p>Only if your appointment includes an interior automotive detailing service. For all other exterior work, no physical presence is required.</p>
     </div>
-
-    <div class="card">
-      <div class="tag tag-gold">$5 Off</div>
-      <h2>Home & Car Refresh</h2>
-      <p style="margin-bottom: 10px;">Select your combined service:</p>
-      <div class="item-list">
-        <li>Car Detailing + Yard Work</li>
-        <li>Car Detailing + Bin Sanitizing</li>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="tag tag-gold">$5 Off</div>
-      <h2>Exterior Care Combo</h2>
-      <p style="margin-bottom: 10px;">The ultimate curb appeal package:</p>
-      <div class="item-list">
-        <li>Bin Sanitizing + Yard Work</li>
-      </div>
-    </div>
-
-    <div class="card" style="border-color: var(--gold); box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);">
-      <div class="tag tag-red">$10 Off</div>
-      <h2>Premium All-Star Bundle</h2>
-      <p style="margin-bottom: 10px; font-weight: 600;">Complete exterior care including:</p>
-      <div class="item-list">
-        <li>Car Detailing (Exterior + Interior)</li>
-        <li>Bin Sanitizing</li>
-        <li>Full Yard Work</li>
-      </div>
+    <div class="faq-item">
+      <h4>What payment methods are accepted?</h4>
+      <p>We facilitate secure payments via Cash, Cash App, and Venmo for your convenience.</p>
     </div>
   </div>
 
-  <div class="layout-grid" style="grid-template-columns: 1fr; margin-top: 30px;">
-    <div class="faq-card">
-      <h2>Frequently Asked Questions</h2>
-      
-      <div class="faq-item">
-        <p class="faq-question">Do I need to be home?</p>
-        <p class="faq-answer">Only if you have an interior car detailing service scheduled.</p>
-      </div>
+</div>
 
-      <div class="faq-item">
-        <p class="faq-question">What payments do you take?</p>
-        <p class="faq-answer">Cash, Cash app, And Venmo.</p>
-      </div>
-    </div>
+<div class="cta-container">
+  <h2>Ready for a transformation?</h2>
+  <p style="color: var(--text-muted); margin-bottom: 50px;">Secure your preferred date and time through our automated booking system.</p>
+  
+  <a href="sms:+15415438046?body=Hello Soul, I would like to inquire about a cleaning service." class="btn-primary">
+    Send Message to Soul
+  </a>
+  
+  <div class="contact-footer">
+    <b>541.543.8046</b>
+    <span>Typical response time: Within 24 hours</span>
   </div>
 </div>
 
 <footer>
-  <p>&copy; 2023 All-Star Cleaning Services. All rights reserved.</p>
+  <p>© 2026 All-Star Cleaning Services • Locally Owned in Veneta, OR</p>
+  <p style="margin-top: 10px; opacity: 0.5;">Outdoor water source required for all washing services.</p>
 </footer>
 
 </body>
